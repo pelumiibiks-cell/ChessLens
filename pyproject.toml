@@ -1,0 +1,26 @@
+[project]
+name = "chesslens"
+version = "0.1.0"
+description = "An explainable chess coach: Stockfish + master-game statistics + RAG over chess theory, explained by Gemini."
+requires-python = ">=3.11"
+dependencies = [
+    "chess>=1.11.2",
+    "google-genai>=2.20.0",
+    "pydantic>=2.0",
+    "httpx>=0.28",
+    "streamlit>=1.62",
+]
+
+[project.optional-dependencies]
+api = ["fastapi", "uvicorn"]
+dev = ["pytest"]
+
+[project.scripts]
+chesslens = "chesslens.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["chesslens*"]
